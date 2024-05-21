@@ -5,7 +5,6 @@ import marvin
 from openai import OpenAI
 from utils import text_to_wav, saveAllAudio 
 import openai
-import os
 
 
 
@@ -14,8 +13,7 @@ MAXLENGTH = 2
 
 
 
-openai.api_key=os.getenv("OPENAI_API_KEY")
-client = OpenAI()
+client = OpenAI(api_key = "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")
 
 with open("prompt.txt", "r") as file:
     system_msg = file.read()
@@ -48,13 +46,7 @@ def logout():
     return redirect("/")
 
 
-@app.route('/')
-def index():
-    if not session.get("name"):
-        # if not there in the session then redirect to the login page
-        return redirect("/login")
-    return ("hello world")
-'''
+
 @app.route('/')
 def index():
     if not session.get("name"):
@@ -95,6 +87,5 @@ def downloadSession():
     path = f"./recordings/{session["name"]}/finalAudio.wav"
     return send_file(path, as_attachment=True)
 
-'''
 if __name__ == 'main':
     app.run(debug=True)
