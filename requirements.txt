@@ -1,0 +1,7 @@
+Flask==3.0.3
+flask_session==0.8.0
+marvin==2.3.4
+openai==1.30.1
+python-dotenv==1.0.1
+google-cloud-texttospeech==2.16.3
+pydub==0.25.1
